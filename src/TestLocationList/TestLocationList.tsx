@@ -55,9 +55,9 @@ const TestLocationsList = () => {
     );
 
   return (
-    <div className="container" style={{ flexDirection: "column" }}>
+    <div className="container fade-in" style={{ flexDirection: "column" }}>
       {!locationsList.size ? (
-        <div className="article-container fade-in">
+        <div className="article-container">
           <FontAwesomeIcon icon="location-dot" size="3x" />
           <h3>Добавьте локацию</h3>
         </div>
@@ -83,7 +83,6 @@ const TestLocationsList = () => {
         </Button>
         <Button
           handleClick={handleConsole}
-          className="fade-in"
           isDisabled={!Boolean(locationsList.size)}
         >
           <FontAwesomeIcon icon="terminal" />
