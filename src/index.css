@@ -1,51 +1,116 @@
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scrollbar-gutter: stable;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   background-color: #ffffff;
-  color: #213547;
+  color: black;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@keyframes display {
-  0% { 
-  opacity: 0;
-  } 100% { 
-  opacity: 1;
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @keyframes open {
-  0% { 
+  0% {
     height: 40px;
-  } 100% { 
+  }
+  100% {
     height: var(--height);
   }
 }
 @keyframes close {
-  0% { 
+  0% {
     height: var(--height);
-  } 100% { 
-    height: 40px
+  }
+  100% {
+    height: 40px;
   }
 }
-.location-container { 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+span:not(.current-location) {
+  line-height: 35px;
+}
+.App {
+  position: relative;
+}
+.spinner {
+  margin: 0 !important;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 30px;
+  height: 46px;
+  width: 46px;
+  animation: spin 1s linear infinite;
+}
+
+.location-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border-radius: 10px;
+  border: 2px solid rgb(226, 221, 221);
+  padding: 10px 20px;
+  transition: border-color 0.2s ease;
+  &:hover {
+    border-color: cornflowerblue;
+  }
+}
+.container {
+  width: 950px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   gap: 30px;
-  height: 150px;
 }
 .server-container {
   display: flex;
   gap: 5px;
   align-items: center;
   align-self: flex-start;
-  height: 40px;
+  flex-wrap: wrap;
 }
-.select { 
+.article-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.select {
   position: relative;
   border-radius: 5px;
   border: 1px solid black;
@@ -54,41 +119,109 @@
   height: 40px;
   text-align: center;
 }
-.display { 
-  animation: display 0.5s ease;
-}
-.open  {
+
+.open {
   overflow: hidden;
   animation: open 0.5s ease forwards;
 }
-.close { 
-overflow: hidden;
-animation: close 0.5s ease forwards; 
+.close {
+  overflow: hidden;
+  animation: close 0.5s ease forwards;
 }
 
-.location-dot { 
+.location-dot {
   position: absolute;
   left: 10px;
   top: 10px;
 }
-.caret-down { 
+.caret-down {
   position: absolute;
   right: 10px;
   top: 10px;
 }
-.list { 
+.list {
   margin: 0;
   padding: 0;
   padding-bottom: 2px;
   list-style-type: none;
 }
-.list-item { 
-  transition: background-color .5s ease;
-  &:hover { 
-  background-color: rgb(58, 70, 87);
-  color: #fff;
+.list-item {
+  transition: background-color 0.5s ease;
+  &:hover {
+    background-color: rgb(58, 70, 87);
+    color: #fff;
   }
 }
-.current-location { 
+.current-location {
   vertical-align: sub;
+}
+
+button {
+  display: flex;
+  gap: 5px;
+  width: fit-content;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  background-color: transparent;
+  color: cornflowerblue;
+  border: 2px solid cornflowerblue;
+  border-radius: 3px;
+  padding: 10px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.delete-btn {
+  color: rgb(215, 52, 52);
+  border-color: rgb(215, 52, 52);
+}
+
+.top-section {
+  display: flex;
+  justify-content: space-between;
+}
+.low-section {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+.fade-out {
+  animation: fade-out 0.5s ease forwards;
+}
+.fade-in {
+  animation: fade-in 0.5s ease;
+}
+.hint-section {
+  width: 100%;
+  display: flex;
+  gap: 17px;
+}
+.hint-input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+  padding-left: 30px;
+}
+.hint-input::placeholder {
+  position: relative;
+  bottom: 50%;
+  transform: translateY(100%);
+  font-size: 14px;
+}
+.hint-section-container {
+  position: relative;
+  width: 100%;
+}
+.hint-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
