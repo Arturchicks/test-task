@@ -7,7 +7,6 @@ import TestLocationForm from "../TestLocationForm/TestLocationForm";
 import { Environment, Location } from "../store/useLocationsStore";
 import Button from "../ui/button";
 import { newObjectType } from "./types";
-import classNames from "classnames";
 
 library.add(faPlus, faTerminal);
 

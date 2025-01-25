@@ -1,4 +1,4 @@
-import { memo, useEffect, useState } from "react";
+import { memo } from "react";
 
 const Button: React.FC<{
   handleClick: () => void;
