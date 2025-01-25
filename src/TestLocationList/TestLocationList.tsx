@@ -49,6 +49,11 @@ const TestLocationsList = () => {
     });
   }, []);
 
+  const handleConsole = () =>
+    console.log(
+      Array.from(locationsList.values()).map(({ name, ...el }) => el),
+    );
+
   return (
     <div className="container" style={{ flexDirection: "column" }}>
       {!locationsList.size ? (
@@ -76,10 +81,7 @@ const TestLocationsList = () => {
           Добавить тестовую локацию
         </Button>
         {locationsList.size ? (
-          <Button
-            handleClick={() => console.log(locationsList)}
-            className="fade-in"
-          >
+          <Button handleClick={handleConsole} className="fade-in test">
             <FontAwesomeIcon icon="terminal" />
             Вывести результат в консоль
           </Button>

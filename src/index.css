@@ -73,7 +73,9 @@ span:not(.current-location) {
   margin-left: 30px;
   height: 46px;
   width: 46px;
-  animation: spin 1s linear infinite;
+  animation:
+    spin 1s linear infinite,
+    fade-in 1s linear;
 }
 
 .location-container {
@@ -148,7 +150,7 @@ span:not(.current-location) {
 .list-item {
   transition: background-color 0.5s ease;
   &:hover {
-    background-color: rgb(58, 70, 87);
+    background-color: black;
     color: #fff;
   }
 }
