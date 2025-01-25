@@ -1,4 +1,4 @@
-![Ссылка на vercel](https://mobile-park.vercel.app/)
+[Ссылка на vercel](https://mobile-park.vercel.app/)
 # Задача
 
 Сделать форму добавления «тестовых локаций».
