@@ -30,8 +30,8 @@ const TestLocationsList = () => {
       const newMap = new Map(prev);
       newMap.set(id, {
         locationID: 1,
-        name: `location-${id}`,
         environmentID: 1,
+        name: `location-${id}`,
         hint: "",
       });
       return newMap;
@@ -57,7 +57,7 @@ const TestLocationsList = () => {
   return (
     <div className="container fade-in" style={{ flexDirection: "column" }}>
       {!locationsList.size ? (
-        <div className="article-container">
+        <div className="article-container fade-in">
           <FontAwesomeIcon icon="location-dot" size="3x" />
           <h3>Добавьте локацию</h3>
         </div>
