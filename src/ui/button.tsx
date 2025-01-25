@@ -1,12 +1,18 @@
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 
 const Button: React.FC<{
   handleClick: () => void;
   children: React.ReactNode;
   className?: string;
-}> = memo(({ handleClick, children, className }) => {
+  isDisabled?: boolean;
+}> = memo(({ handleClick, children, className, isDisabled }) => {
   return (
-    <button type="button" onClick={handleClick} className={className}>
+    <button
+      type="button"
+      onClick={handleClick}
+      className={isDisabled ? `${className} disabled` : className}
+      disabled={isDisabled}
+    >
       {children}
     </button>
   );

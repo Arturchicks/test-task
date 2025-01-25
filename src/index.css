@@ -227,3 +227,9 @@ button {
   top: 10px;
   left: 10px;
 }
+.none {
+  display: none;
+}
+.disabled {
+  opacity: 0.5;
+}

@@ -7,6 +7,7 @@ import TestLocationForm from "../TestLocationForm/TestLocationForm";
 import { Environment, Location } from "../store/useLocationsStore";
 import Button from "../ui/button";
 import { newObjectType } from "./types";
+import classNames from "classnames";
 
 library.add(faPlus, faTerminal);
 
@@ -57,9 +58,10 @@ const TestLocationsList = () => {
   return (
     <div className="container" style={{ flexDirection: "column" }}>
       {!locationsList.size ? (
-        <h3 style={{ textAlign: "center" }} className="fade-in">
-          Добавьте локацию
-        </h3>
+        <div className="article-container fade-in">
+          <FontAwesomeIcon icon="location-dot" size="3x" />
+          <h3>Добавьте локацию</h3>
+        </div>
       ) : (
         Array.from(locationsList.keys()).map((id) => (
           <TestLocationForm
@@ -80,12 +82,14 @@ const TestLocationsList = () => {
           <FontAwesomeIcon icon="plus" size="lg" />
           Добавить тестовую локацию
         </Button>
-        {locationsList.size ? (
-          <Button handleClick={handleConsole} className="fade-in test">
-            <FontAwesomeIcon icon="terminal" />
-            Вывести результат в консоль
-          </Button>
-        ) : null}
+        <Button
+          handleClick={handleConsole}
+          className="fade-in"
+          isDisabled={!Boolean(locationsList.size)}
+        >
+          <FontAwesomeIcon icon="terminal" />
+          Вывести результат в консоль
+        </Button>
       </div>
     </div>
   );
